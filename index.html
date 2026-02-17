@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lia Ternis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      --cream: #f5f0e8;
+      --parchment: #e8dfc8;
+      --ink: #2a1f0e;
+      --sepia: #7a5c3a;
+      --rust: #9b4c2a;
+      --gold: #b8962e;
+      --light-sepia: #c9b89a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--ink);
+      font-family: 'IM Fell English', serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background-image:
+        radial-gradient(ellipse at 20% 20%, rgba(184,150,46,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(155,76,42,0.06) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    .frame-outer {
+      max-width: 640px;
+      width: 100%;
+      border: 2px solid var(--sepia);
+      padding: 3px;
+      position: relative;
+      animation: fadeIn 1.2s ease both;
+    }
+
+    .frame-inner {
+      border: 1px solid var(--light-sepia);
+      padding: 3rem 3.5rem;
+      background: var(--cream);
+      position: relative;
+    }
+
+    /* Corner ornaments */
+    .frame-outer::before,
+    .frame-outer::after,
+    .frame-inner::before,
+    .frame-inner::after {
+      content: '✦';
+      position: absolute;
+      color: var(--gold);
+      font-size: 0.9rem;
+      line-height: 1;
+    }
+    .frame-outer::before { top: -0.55rem; left: -0.55rem; }
+    .frame-outer::after  { bottom: -0.55rem; right: -0.55rem; }
+    .frame-inner::before { top: -0.5rem; right: -0.5rem; }
+    .frame-inner::after  { bottom: -0.5rem; left: -0.5rem; }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--sepia);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 4rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    h1 span {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--sepia);
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+      color: var(--light-sepia);
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--light-sepia), transparent);
+    }
+
+    .divider-ornament {
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+    }
+
+    /* Links */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: var(--ink);
+      padding: 0.9rem 1.2rem;
+      border: 1px solid transparent;
+      border-bottom: 1px solid var(--parchment);
+      transition: all 0.25s ease;
+      position: relative;
+      group: true;
+    }
+
+    .link-item:hover {
+      border-color: var(--light-sepia);
+      background: var(--parchment);
+      padding-left: 1.5rem;
+    }
+
+    .link-item:hover .link-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .icon-wrap {
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--rust);
+      flex-shrink: 0;
+    }
+
+    .link-content {
+      flex: 1;
+    }
+
+    .link-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--sepia);
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .link-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    .link-arrow {
+      color: var(--light-sepia);
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: all 0.2s ease;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    .footer-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--light-sepia);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .frame-inner { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="frame-outer">
+    <div class="frame-inner">
+
+      <div class="header">
+        <p class="eyebrow">Persönliche Seite</p>
+        <h1>Lia <span>Ternis</span></h1>
+      </div>
+
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span class="divider-ornament">— ✦ —</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="links">
+
+        <a class="link-item" href="mailto:lia@ternis.eu">
+          <div class="icon-wrap">
+            <i data-lucide="mail" style="width:20px;height:20px;"></i>
+          </div>
+          <div class="link-content">
+            <span class="link-label">Elektronische Post</span>
+            <span class="link-value">lia@ternis.eu</span>
+          </div>
+          <div class="link-arrow">
+            <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
+          </div>
+        </a>
+
+        <a class="link-item" href="https://ternis.eu" target="_blank" rel="noopener">
+          <div class="icon-wrap">
+            <i data-lucide="home" style="width:20px;height:20px;"></i>
+          </div>
+          <div class="link-content">
+            <span class="link-label">Familie</span>
+            <span class="link-value">ternis.eu</span>
+          </div>
+          <div class="link-arrow">
+            <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
+          </div>
+        </a>
+
+        <a class="link-item" href="https://fabian.ternis.eu" target="_blank" rel="noopener">
+          <div class="icon-wrap">
+            <i data-lucide="wrench" style="width:20px;height:20px;"></i>
+          </div>
+          <div class="link-content">
+            <span class="link-label">Webmaster</span>
+            <span class="link-value">fabian.ternis.eu</span>
+          </div>
+          <div class="link-arrow">
+            <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span class="divider-ornament">— ✦ —</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="footer">
+        <p class="footer-text">lia.ternis.eu &nbsp;·&nbsp; Mit Sorgfalt erstellt</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
