@@ -8,13 +8,13 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     :root {
-      --cream: #f5f0e8;
-      --parchment: #e8dfc8;
+      --cream: #f8f4ec;
+      --parchment: #eee5d2;
       --ink: #2a1f0e;
-      --sepia: #7a5c3a;
+      --sepia: #866846;
       --rust: #9b4c2a;
       --gold: #b8962e;
-      --light-sepia: #c9b89a;
+      --light-sepia: #d1c1a5;
     }
 
     * {
@@ -41,10 +41,13 @@
     .frame-outer {
       max-width: 640px;
       width: 100%;
-      border: 2px solid var(--sepia);
-      padding: 3px;
+      border: 1px solid var(--sepia);
+      padding: 6px;
       position: relative;
       animation: fadeIn 1.2s ease both;
+      background: var(--parchment);
+      box-shadow: 0 20px 40px rgba(42, 31, 14, 0.12), 0 1px 3px rgba(42, 31, 14, 0.05);
+      border-radius: 4px;
     }
 
     .frame-inner {
@@ -52,6 +55,7 @@
       padding: 3rem 3.5rem;
       background: var(--cream);
       position: relative;
+      border-radius: 2px;
     }
 
     /* Corner ornaments */
@@ -133,18 +137,22 @@
       gap: 1rem;
       text-decoration: none;
       color: var(--ink);
-      padding: 0.9rem 1.2rem;
+      padding: 1rem 1.2rem;
       border: 1px solid transparent;
       border-bottom: 1px solid var(--parchment);
-      transition: all 0.25s ease;
+      transition: all 0.3s ease;
       position: relative;
-      group: true;
+      border-radius: 4px;
     }
 
     .link-item:hover {
       border-color: var(--light-sepia);
-      background: var(--parchment);
-      padding-left: 1.5rem;
+      background: rgba(238, 229, 210, 0.4);
+      box-shadow: 0 4px 12px rgba(42, 31, 14, 0.03);
+    }
+
+    .link-item:hover .link-content {
+      transform: translateX(6px);
     }
 
     .link-item:hover .link-arrow {
@@ -162,8 +170,18 @@
       flex-shrink: 0;
     }
 
+    .icon-wrap svg {
+      stroke-width: 1.25;
+      transition: transform 0.3s ease;
+    }
+
+    .link-item:hover .icon-wrap svg {
+      transform: scale(1.1);
+    }
+
     .link-content {
       flex: 1;
+      transition: transform 0.3s ease;
     }
 
     .link-label {
