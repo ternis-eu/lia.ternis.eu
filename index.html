@@ -193,13 +193,13 @@
 
     <div class="links">
 
-      <a class="link-item" href="mailto:lia@ternis.eu">
+      <a class="link-item" href="mailto:lia@lia.ternismail.de">
         <div class="icon-wrap">
           <i data-lucide="mail" style="width:20px;height:20px;"></i>
         </div>
         <div class="link-content">
           <span class="link-label">E-Mail</span>
-          <span class="link-value">lia@ternis.eu</span>
+          <span class="link-value">lia@lia.ternismail.de</span>
         </div>
         <div class="link-arrow">
           <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
@@ -211,7 +211,7 @@
           <i data-lucide="home" style="width:20px;height:20px;"></i>
         </div>
         <div class="link-content">
-          <span class="link-label">Familie</span>
+          <span class="link-label">Familia</span>
           <span class="link-value">ternis.eu</span>
         </div>
         <div class="link-arrow">
@@ -219,13 +219,39 @@
         </div>
       </a>
 
-      <a class="link-item" href="https://fabian.ternis.eu" target="_blank" rel="noopener">
+      <a class="link-item" href="https://fabianternis.de" target="_blank" rel="noopener">
         <div class="icon-wrap">
           <i data-lucide="wrench" style="width:20px;height:20px;"></i>
         </div>
         <div class="link-content">
-          <span class="link-label">Webmaster</span>
-          <span class="link-value">fabian.ternis.eu</span>
+          <span class="link-label">Hostmaster</span>
+          <span class="link-value">fabianternis.de</span>
+        </div>
+        <div class="link-arrow">
+          <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
+        </div>
+      </a>
+
+      <a class="link-item" href="https://ternismail.de" target="_blank" rel="noopener">
+        <div class="icon-wrap">
+          <i data-lucide="server" style="width:20px;height:20px;"></i>
+        </div>
+        <div class="link-content">
+          <span class="link-label">Mailsystem</span>
+          <span class="link-value">ternismail.de</span>
+        </div>
+        <div class="link-arrow">
+          <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
+        </div>
+      </a>
+
+      <a class="link-item" href="https://ternis-edv.de" target="_blank" rel="noopener">
+        <div class="icon-wrap">
+          <i data-lucide="monitor" style="width:20px;height:20px;"></i>
+        </div>
+        <div class="link-content">
+          <span class="link-label">Ternis EDV</span>
+          <span class="link-value">ternis-edv.de</span>
         </div>
         <div class="link-arrow">
           <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
@@ -237,12 +263,13 @@
     <div class="divider"></div>
 
     <div class="footer">
-      <p class="footer-text">lia.ternis.eu &copy; 2024</p>
+      <p class="footer-text">lia.ternis.eu &copy; <span id="currentYear"></span></p>
     </div>
 
   </div>
 
   <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
     lucide.createIcons();
   </script>
 </body>
