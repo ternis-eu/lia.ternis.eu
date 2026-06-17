@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Lia Ternis</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +23,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
@@ -36,16 +37,14 @@
       padding: 2rem;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      -webkit-user-select: none;
+      user-select: none;
     }
 
     .card {
       max-width: 480px;
       width: 100%;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
       padding: 3rem 2.5rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
       animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
@@ -99,11 +98,17 @@
       background: var(--card-bg);
     }
 
-    .link-item:hover {
-      border-color: var(--accent-color);
-      background-color: var(--hover-bg);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-      transform: translateY(-2px);
+    @media (hover: hover) {
+      .link-item:hover {
+        border-color: var(--accent-color);
+        background-color: var(--hover-bg);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        transform: translateY(-2px);
+      }
+    }
+
+    .link-item:active {
+      transform: scale(0.95);
     }
 
     .icon-wrap {
@@ -119,9 +124,11 @@
       transition: color 0.2s ease, background-color 0.2s ease;
     }
 
-    .link-item:hover .icon-wrap {
-      color: var(--accent-color);
-      background-color: rgba(59, 130, 246, 0.1);
+    @media (hover: hover) {
+      .link-item:hover .icon-wrap {
+        color: var(--accent-color);
+        background-color: rgba(59, 130, 246, 0.1);
+      }
     }
 
     .icon-wrap svg {
@@ -154,10 +161,12 @@
       transition: all 0.2s ease;
     }
 
-    .link-item:hover .link-arrow {
-      opacity: 1;
-      transform: translateX(0);
-      color: var(--accent-color);
+    @media (hover: hover) {
+      .link-item:hover .link-arrow {
+        opacity: 1;
+        transform: translateX(0);
+        color: var(--accent-color);
+      }
     }
 
     /* Footer */
