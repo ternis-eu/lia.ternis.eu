@@ -42,7 +42,7 @@
     }
 
     .card {
-      max-width: 480px;
+      max-width: 560px;
       width: 100%;
       padding: 3rem 2.5rem;
       animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -102,8 +102,7 @@
       .link-item:hover {
         border-color: var(--accent-color);
         background-color: var(--hover-bg);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);
       }
     }
 
@@ -173,11 +172,26 @@
     .footer {
       text-align: center;
       margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
     .footer-text {
       font-size: 0.75rem;
       color: var(--text-muted);
+    }
+
+    .footer-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    @media (hover: hover) {
+      .footer-link:hover {
+        color: var(--accent-color);
+      }
     }
 
     @keyframes slideUp {
@@ -273,6 +287,8 @@
 
     <div class="footer">
       <p class="footer-text">lia.ternis.eu &copy; <span id="currentYear"></span></p>
+      <p class="footer-text">Domain von dnbx.de</p>
+      <p class="footer-text"><a href="https://fabianternis.de/impressum" class="footer-link">Impressum auf fabianternis.de</a></p>
     </div>
 
   </div>
