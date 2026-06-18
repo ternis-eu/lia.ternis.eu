@@ -220,13 +220,13 @@
 
     <div class="links">
 
-      <a class="link-item" href="mailto:lia@lia.ternismail.de">
+      <a class="link-item" href="#" id="em-link">
         <div class="icon-wrap">
           <i data-lucide="mail" style="width:20px;height:20px;"></i>
         </div>
         <div class="link-content">
           <span class="link-label">E-Mail</span>
-          <span class="link-value">lia@lia.ternismail.de</span>
+          <span class="link-value" id="em-val">E-Mail anzeigen</span>
         </div>
         <div class="link-arrow">
           <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
@@ -300,6 +300,17 @@
   <script>
     document.getElementById('currentYear').textContent = new Date().getFullYear();
     lucide.createIcons();
+
+    // Email Obfuscation
+    const emReversed = "ed.liamsinret.ail@ail";
+    const em = emReversed.split('').reverse().join('');
+    const emLink = document.getElementById('em-link');
+    const emVal = document.getElementById('em-val');
+
+    if (emLink && emVal) {
+      emLink.href = "mailto:" + em;
+      emVal.textContent = em;
+    }
   </script>
 </body>
 </html>
